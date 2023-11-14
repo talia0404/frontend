@@ -1,0 +1,20 @@
+<form (submit)="on login (loginform)" #loginform="ngForm">
+    <input type="text"
+    ngModel name="enteredusername"
+    placeholder="Username"
+    required
+    minlength="1"
+    pattern="^[\w~\. ] +@( [\w~] +\. )+[\w-]{2,4}$"
+    #enteredusername ="ngModel"/>
+    <div *ngIF="enteredusername.invalid&&(enteredusername.dirty||enteredusername.touched)">invalid
+        <input type="password"
+        ngModel name="enteredpassword"
+        placeholder="Password"
+        required
+        minlength="1"
+        pattern="^([a-zA-Z0-9@#] {8,15})$"
+        #enteredpassword="ngModel"/>
+    </div>*ngIF="enteredpassword.invalid&&(enteredpassword.dirty||enteredpassword.touched)">invalid
+    <br>
+    <button type="submit" >{{option}}</button> 
+    </form>
